@@ -3,7 +3,7 @@ env:
     rcloneconfig: "ENCRYPTED[!2635fbe9563c3717f22c13c0d7cb66d89328f3512ec67a9fd7e11906b81551560f9a7dfa81c699a1a42a02577555cfcb!]"
     tokentl: "ENCRYPTED[!518d1d99e3c82475e9308fee7ef1e455d43d16b19bddda930e935cde0712a29946a43a14af66b2b2e5d4a86400eda2b6!]"
     idtl: "ENCRYPTED[!cd0474cf32182f61b00ad5956d14e5ddba330d058c62d7e875650dce44935ae0c8bbcd669bca4174dc888fc55bbad205!]"
-    lunch: lunch qassa_beryllium-user
+    lunch: lunch qassa_sagit-user
     make: make qassa
 
 task:
@@ -41,7 +41,7 @@ task:
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
       - repoo init -q --no-repo-verify --depth=1 -u https://github.com/keepQASSA/manifest.git -b Q -g default,-mips,-darwin,-notdefault
-      - git clone --depth 1 https://github.com/ghou8s/local_manifest.git -b qassa-beryllium .repo/local_manifests
+      - git clone --depth 1 https://github.com/ghou8s/local_manifest.git -b qassa-sagit .repo/local_manifests
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
       - sed -i 's|ssh://git@github.com|https://github.com|g' .repo/manifests/snippets/qassa.xml
 #      - repoo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 --fail-fast
@@ -56,10 +56,10 @@ task:
       - export KBUILD_BUILD_HOST="ghou8s"
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa beryllium Started!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa for sagit Started!"
       - ./collect.sh
 #      - ./final.sh
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd ~/rom/out/target/product/beryllium/ && ls qassa-*.zip) Completed!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd ~/rom/out/target/product/sagit/ && ls qassa-*.zip) Completed!"
 
   Upload_script:
       - ./upload.sh
