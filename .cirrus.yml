@@ -1,8 +1,8 @@
 env:
-    credentials: "ENCRYPTED[!6ca58065aad12be117638eadda9c2a0385913f13ddf6f1ebe43f71d0baa650efc1e9100997ff5510fd3cc4ba9bac1987!]"
-    rcloneconfig: "ENCRYPTED[!2635fbe9563c3717f22c13c0d7cb66d89328f3512ec67a9fd7e11906b81551560f9a7dfa81c699a1a42a02577555cfcb!]"
-    tokentl: "ENCRYPTED[!518d1d99e3c82475e9308fee7ef1e455d43d16b19bddda930e935cde0712a29946a43a14af66b2b2e5d4a86400eda2b6!]"
-    idtl: "ENCRYPTED[!cd0474cf32182f61b00ad5956d14e5ddba330d058c62d7e875650dce44935ae0c8bbcd669bca4174dc888fc55bbad205!]"
+    credentials: "ENCRYPTED[!b3392b5ea8baa7b6bbdb1f3aa1cddc4b1c45f8acaadb0e3b252deeaa35abb635b6ce8dce1dc278fc95f974fd25d0cfcb!]"
+    rcloneconfig: "ENCRYPTED[!51630fc68cb45271e4e5d349f85ab4771dd54df4ba9e9dcbea8aa6b81170c426962eef842869f892d67561aa1263c05a!]"
+    tokentl: "ENCRYPTED[!5221996387059eb4e5daf520cca8dca1f076e99add547f450b4a49ea57d37a526a1ddb83cc77368b4ae97a374154edc9!]"
+    idtl: "ENCRYPTED[!47829c89e283941f50a6071aaab59c9e6dd1590b8a1858de5f8aa2bd66ba0b54315fde33a35a695b341a250b3e91c37e!]"
     lunch: lunch qassa_sagit-user
     make: make qassa
 
@@ -18,12 +18,12 @@ task:
        - export DEBIAN_FRONTEND=noninteractive
        - mkdir -p ~/.config/rclone
        - echo "$rcloneconfig" > ~/.rclone.conf
-       - git config --global user.name "ghou8s-ci"
-       - git config --global user.email "ghou8s-ci@gmail.com"
+       - git config --global user.name "deny2311"
+       - git config --global user.email "deny2311@gmail.com"
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy ghou8s-ci:qassa/ccache.tar.gz ~/ -P
+       - rclone copy deny2311:qassa/ccache.tar.gz ~/ -P
        - cd ~/
        - time tar xf ccache.tar.gz
        - cd ~/
@@ -41,7 +41,7 @@ task:
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
       - repoo init -q --no-repo-verify --depth=1 -u https://github.com/keepQASSA/manifest.git -b Q -g default,-mips,-darwin,-notdefault
-      - git clone --depth 1 https://github.com/ghou8s/local_manifest.git -b qassa-sagit .repo/local_manifests
+      - git clone --depth 1 https://github.com/deny2311/local_manifest.git -b qassa-sagit .repo/local_manifests
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
       - sed -i 's|ssh://git@github.com|https://github.com|g' .repo/manifests/snippets/qassa.xml
 #      - repoo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 --fail-fast
@@ -50,10 +50,10 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
   Build_script:
-      - export BUILD_USERNAME="ghou8s-ci"
-      - export BUILD_HOSTNAME="ghou8s"
-      - export KBUILD_BUILD_USER="ghou8s-ci"
-      - export KBUILD_BUILD_HOST="ghou8s"
+      - export BUILD_USERNAME="deny2311"
+      - export BUILD_HOSTNAME="deny"
+      - export KBUILD_BUILD_USER="deny2311"
+      - export KBUILD_BUILD_HOST="deny"
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa for sagit Started!"
@@ -67,6 +67,6 @@ task:
       - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Uploading ccache...."
-      - rclone copy ccache.tar.gz ghou8s-ci:qassa -P
+      - rclone copy ccache.tar.gz deny2311:qassa -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Ccache Uploaded Successfully!"
 
