@@ -10,5 +10,5 @@ ccache -M 10G
 ccache -z
 $lunch
 $make -j8 &
-sleep 90m
+sleep 85m
 kill %1
