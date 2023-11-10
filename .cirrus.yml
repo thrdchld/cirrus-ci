@@ -1,9 +1,9 @@
 env:
     credentials: "ENCRYPTED[!df32743dae8ecb97d96f3cbfecd944f30d923cb1aba5dc3fd9dfa2e17ffcaa1d7670d1a9abb6bfe03e94ad11e02ac5ef!]"
-    rcloneconfig: "ENCRYPTED[!e50edfcd842701c6c4d1fa16de783b58bbe4078c3a5cae8018b7c762aaa7240e33ff39c8e6e41dcb29492e7801f53b32!]"
+    rcloneconfig: "ENCRYPTED[!9e1d6f27042376ab4305436499c88356dc5e0b6570b9e17a011400a81ccb2b69ceefd246f0a2b9f7af43bee9d63f2da9!]"
     tokentl: "ENCRYPTED[!5221996387059eb4e5daf520cca8dca1f076e99add547f450b4a49ea57d37a526a1ddb83cc77368b4ae97a374154edc9!]"
     idtl: "ENCRYPTED[!f4fc55a6d01d46d6ff04e84b89edb3471b53846e97c927ac14a51769a422b33d399013ee2178b268d72b53652b3edc79!]"
-    lunch: lunch derp_sagit-user
+    lunch: lunch derp_sagit-userdebug
     make: mka derp
 
 task:
@@ -40,12 +40,12 @@ task:
       - cd ~/rom
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
-      - repoo init -q --no-repo-verify --depth=1 -u https://github.com/DerpFest-AOSP/manifest.git -b 13 -g default,-mips,-darwin,-notdefault
-      - git clone --depth 1 https://github.com/deny2311/local_manifest.git -b derp13-sagit .repo/local_manifests
-      - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
+      - repo init --depth=1 --no-repo-verify -u https://github.com/DerpFest-AOSP/manifest.git -b 14 -g default,-mips,-darwin,-notdefault
+      - git clone https://github.com/Sagit-A14/local_manifest.git --depth 1 -b derp14-sagit .repo/local_manifests
+#      - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
 #      - sed -i 's|ssh://git@github.com|https://github.com|g' .repo/manifests/snippets/qassa.xml
 #      - repoo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 --fail-fast
-      - repoo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 #      - sed -i 's| -u||g' vendor/qassa/config/branding.mk
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
