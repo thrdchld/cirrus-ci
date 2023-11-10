@@ -6,11 +6,9 @@ export TZ=Asia/Jakarta
 export CCACHE_DIR=~/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
-ccache -M 150G -F 0
-ccache -o compression=true
+ccache -M 10G
 ccache -z
 $lunch
 $make -j8 &
-sleep 85m
+sleep 90m
 kill %1
-ccache -s
