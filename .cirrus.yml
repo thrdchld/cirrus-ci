@@ -1,6 +1,6 @@
 env:
     credentials: "ENCRYPTED[!df32743dae8ecb97d96f3cbfecd944f30d923cb1aba5dc3fd9dfa2e17ffcaa1d7670d1a9abb6bfe03e94ad11e02ac5ef!]"
-    rcloneconfig: "ENCRYPTED[!5ced483f389560f1f8f41a00558d5b013d767f53bca24b75470bf3fa74f4673a46ad0da98764d74a59e84528d6accbbf!]"
+    rcloneconfig: "ENCRYPTED[!9dbc2f7a329f67c69c4546a98dab2fd0df51041aad9d5f19e7351f0bb328997bc68ba92a99ba43dbae91b1601b26bcb1!]"
     tokentl: "ENCRYPTED[!5221996387059eb4e5daf520cca8dca1f076e99add547f450b4a49ea57d37a526a1ddb83cc77368b4ae97a374154edc9!]"
     idtl: "ENCRYPTED[!f4fc55a6d01d46d6ff04e84b89edb3471b53846e97c927ac14a51769a422b33d399013ee2178b268d72b53652b3edc79!]"
     lunch: lunch qassa_sagit-user
