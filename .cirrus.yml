@@ -1,6 +1,6 @@
 env:
     credentials: "ENCRYPTED[!df32743dae8ecb97d96f3cbfecd944f30d923cb1aba5dc3fd9dfa2e17ffcaa1d7670d1a9abb6bfe03e94ad11e02ac5ef!]"
-    rcloneconfig: "ENCRYPTED[!e50edfcd842701c6c4d1fa16de783b58bbe4078c3a5cae8018b7c762aaa7240e33ff39c8e6e41dcb29492e7801f53b32!]"
+    rcloneconfig: "ENCRYPTED[!9dbc2f7a329f67c69c4546a98dab2fd0df51041aad9d5f19e7351f0bb328997bc68ba92a99ba43dbae91b1601b26bcb1!]"
     tokentl: "ENCRYPTED[!5221996387059eb4e5daf520cca8dca1f076e99add547f450b4a49ea57d37a526a1ddb83cc77368b4ae97a374154edc9!]"
     idtl: "ENCRYPTED[!f4fc55a6d01d46d6ff04e84b89edb3471b53846e97c927ac14a51769a422b33d399013ee2178b268d72b53652b3edc79!]"
     lunch: lunch derp_sagit-user
@@ -10,8 +10,8 @@ task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 480m
   container:
-      image: inok2341/anu:latest
-      cpu: 8
+      image: apon77/aosp:cirrus
+      cpu: 16
       memory: 32G
 
   Build-Env-Setup_background_script:
