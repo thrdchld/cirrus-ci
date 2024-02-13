@@ -1,8 +1,8 @@
 env:
-    credentials: "ENCRYPTED[!df32743dae8ecb97d96f3cbfecd944f30d923cb1aba5dc3fd9dfa2e17ffcaa1d7670d1a9abb6bfe03e94ad11e02ac5ef!]"
-    rcloneconfig: "ENCRYPTED[!9dbc2f7a329f67c69c4546a98dab2fd0df51041aad9d5f19e7351f0bb328997bc68ba92a99ba43dbae91b1601b26bcb1!]"
-    tokentl: "ENCRYPTED[!5221996387059eb4e5daf520cca8dca1f076e99add547f450b4a49ea57d37a526a1ddb83cc77368b4ae97a374154edc9!]"
-    idtl: "ENCRYPTED[!f4fc55a6d01d46d6ff04e84b89edb3471b53846e97c927ac14a51769a422b33d399013ee2178b268d72b53652b3edc79!]"
+    credentials: "ENCRYPTED[!cfbfe2e2980e80f795fc4936a65a518896b7b9ef8ce8c95570cc5dafe8109b16a18f0217f1bb8bd540b427b3455bb634!]"
+    rcloneconfig: "ENCRYPTED[!dff6444599e4058b2127baec0fe409ade58c1d2d1bafffd2dd1c3720c59cb837b96e3ad8984c5aa7550fa7e95da3b07d!]"
+    tokentl: "ENCRYPTED[!4e08bfb6719cf11eebdf252ad46eaf68fac38aa7651339a3b02a6722e3abfe339067b751956226e858af133a0626305c!]"
+    idtl: "ENCRYPTED[!ada2145d95983d2e2a41ae80fa27318da5a8980170db84992d9235c4dbcd190374eeeb76f47c815ab2ed55ddd087637d!]"
     lunch: lunch qassa_sagit-user
     make: make qassa
 
@@ -18,8 +18,8 @@ task:
        - export DEBIAN_FRONTEND=noninteractive
        - mkdir -p ~/.config/rclone
        - echo "$rcloneconfig" > ~/.rclone.conf
-       - git config --global user.name "deny2311"
-       - git config --global user.email "deny2311@gmail.com"
+       - git config --global user.name "denysaja"
+       - git config --global user.email "deny_saja@hotmail.com"
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
