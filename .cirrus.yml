@@ -1,6 +1,6 @@
 env:
-    credentials: "ENCRYPTED[!cfbfe2e2980e80f795fc4936a65a518896b7b9ef8ce8c95570cc5dafe8109b16a18f0217f1bb8bd540b427b3455bb634!]"
-    rcloneconfig: "ENCRYPTED[!d970e356e66a8798e097fef4b0a0b9a41e827b6468b9adf09fa21719b500f5cf72acab6868e2e486052f106a409238f8!]"
+    credentials: "ENCRYPTED[!d8a3946282d8d8ed912846d2c02486ccaa7bf2ce6c95a7c0a24a08f63418ed82adbc48487d5e3e634e218f635f4700cb!]"
+    rcloneconfig: "ENCRYPTED[!a9cb9e1f585011fa794e45ed934db2a1263107170159b6fb6781eec234b27c64ee3e7615103307a5d3c3f853676e7d74!]"
     tokentl: "ENCRYPTED[!4e08bfb6719cf11eebdf252ad46eaf68fac38aa7651339a3b02a6722e3abfe339067b751956226e858af133a0626305c!]"
     idtl: "ENCRYPTED[!ada2145d95983d2e2a41ae80fa27318da5a8980170db84992d9235c4dbcd190374eeeb76f47c815ab2ed55ddd087637d!]"
     lunch: lunch qassa_X01BD-user
@@ -23,7 +23,7 @@ task:
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy X01BD:qassa/ccache.tar.gz ~/ -P
+       - rclone copy qassa:qassa/ccache.tar.gz ~/ -P
        - cd ~/
        - time tar xf ccache.tar.gz
        - cd ~/
@@ -67,6 +67,6 @@ task:
       - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Uploading ccache...."
-      - rclone copy ccache.tar.gz X01BD:qassa -P
+      - rclone copy ccache.tar.gz qassa:qassa -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Ccache Uploaded Successfully!"
 
