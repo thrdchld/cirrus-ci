@@ -58,6 +58,7 @@ task:
       - export ALLOW_MISSING_DEPENDENCIES=true
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+      - rm -rf device/qassa/sepolicy/common/dynamic/genfs_contexts
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa for X01BD Started!"
       - ./collect.sh
 #      - ./final.sh
