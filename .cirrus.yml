@@ -3,7 +3,7 @@ env:
     rcloneconfig: "ENCRYPTED[!00cf6389ac5fd7df9e2671ae4649f9746d40e7c8651882e85a852cb2cb8b9a512955a2cae554180cd672549121ffd683!]"
     tokentl: "ENCRYPTED[!92afde98545a929998ed742f4d86bcad35871a710b4c994851ddd95073a76119ac895677e140efe9eb82e8788b0981d4!]"
     idtl: "ENCRYPTED[!96d32487cfcdd969e6736ada7dd2c4713238d06db52b16fa996a2b256d52d09a27ddeada2267065a3f6499c0056777b5!]"
-    lunch: lunch qassa_X01BD-user
+    lunch: lunch qassa_X01BD-userdebug
     make: make qassa
 
 task:
