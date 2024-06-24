@@ -60,6 +60,7 @@ task:
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa for X01BD Started!"
       - ./collect.sh
+      - rclone copy ~/rom/out/target/product/X01BD/qassa*.zip qassa:qassa -P
 #      - ./final.sh
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd ~/rom/out/target/product/X01BD/ && ls qassa*.zip) Completed!"
 
