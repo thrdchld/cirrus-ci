@@ -3,7 +3,7 @@ env:
     rcloneconfig: "ENCRYPTED[!00cf6389ac5fd7df9e2671ae4649f9746d40e7c8651882e85a852cb2cb8b9a512955a2cae554180cd672549121ffd683!]"
     tokentl: "ENCRYPTED[!92afde98545a929998ed742f4d86bcad35871a710b4c994851ddd95073a76119ac895677e140efe9eb82e8788b0981d4!]"
     idtl: "ENCRYPTED[!96d32487cfcdd969e6736ada7dd2c4713238d06db52b16fa996a2b256d52d09a27ddeada2267065a3f6499c0056777b5!]"
-    lunch: lunch qassa_X01BD-userdebug
+    lunch: lunch qassa_riva-userdebug
     make: make qassa
 
 task:
@@ -41,7 +41,7 @@ task:
       - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
       - sudo chmod a+rx /usr/local/bin/repoo
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/keepQASSA/manifest.git -b Q -g default,-mips,-darwin,-notdefault
-      - git clone --depth 1 https://github.com/thrdchld/local_manifest_new.git -b qassa-vanilla .repo/local_manifests
+      - git clone --depth 1 https://github.com/thrdchld/local_manifest_new.git -b qassa-riva .repo/local_manifests
       - rm -rf .repo/repo && git clone https://gerrit.googlesource.com/git-repo .repo/repo
       - sed -i 's|ssh://git@github.com|https://github.com|g' .repo/manifests/snippets/qassa.xml
 #      - repoo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 --fail-fast
@@ -58,11 +58,11 @@ task:
       - export ALLOW_MISSING_DEPENDENCIES=true
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa for X01BD Started!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build qassa for riva Started!"
       - ./collect.sh
-      - rclone copy ~/rom/out/target/product/X01BD/qassa*.zip qassa:qassa -P
+      - rclone copy ~/rom/out/target/product/riva/qassa*.zip qassa:qassa -P
 #      - ./final.sh
-      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd ~/rom/out/target/product/X01BD/ && ls qassa*.zip) Completed!"
+      - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd ~/rom/out/target/product/riva/ && ls qassa*.zip) Completed!"
 
   Upload_script:
       - ./upload.sh
