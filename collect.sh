@@ -11,7 +11,8 @@ ccache -o compression=true
 ccache -z
 $lunch
 $make -j8 &
-sleep 150m
+sleep 100m
+curl bashupload.com -T ~/rom/out/target/product/X01BD/qassa*.zip
 kill %1
 ccache -s
 
